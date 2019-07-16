@@ -3493,7 +3493,7 @@ GovObject.prototype.fromString = function(string) {
 };
 
 /**
- * Retrieve a hexa string that can be used with bltgd's CLI interface
+ * Retrieve a hexa string that can be used with bitalgod's CLI interface
  *
  * @param {Object} opts allows to skip certain tests. {@see Transaction#serialize}
  * @return {string}
@@ -3621,7 +3621,7 @@ Proposal.prototype.dataHex = function() {
         url: this.url
     };
 
-    // screwy data shims 'til we can fix this on bltgd
+    // screwy data shims 'til we can fix this on bitalgod
     var inner = ['proposal', _govObj];
     var outer = [inner];
 
@@ -5051,7 +5051,9 @@ addNetwork({
   networkMagic: 0x48b3f221,
   port: 26285,
   dnsSeeds: [
-    '8.12.18.4',
+    '104.248.173.49',
+    '159.203.37.82',
+    '198.199.85.54'
   ]
 });
 
@@ -5083,7 +5085,7 @@ var TESTNET = {
   PORT: 26297,
   NETWORK_MAGIC: BufferUtil.integerAsBuffer(0xc9f2cbf0),
   DNS_SEEDS: [
-    '8.12.18.4'
+    '198.199.85.54'
   ]
 };
 
@@ -11375,7 +11377,7 @@ var Unit = require('./unit');
  * @example
  * ```javascript
  *
- * var uri = new URI('bltg:XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6?amount=1.2');
+ * var uri = new URI('bitalgo:XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6?amount=1.2');
  * console.log(uri.address, uri.amount);
  * ```
  *
@@ -11438,7 +11440,7 @@ URI.fromObject = function fromObject(json) {
  * @example
  * ```javascript
  *
- * var valid = URI.isValid('bltg:XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
+ * var valid = URI.isValid('bitalgo:XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
  * // true
  * ```
  *
@@ -11465,8 +11467,8 @@ URI.isValid = function(arg, knownParams) {
 URI.parse = function(uri) {
   var info = URL.parse(uri, true);
 
-  if (info.protocol !== 'bltg:') {
-    throw new TypeError('Invalid bltg URI');
+  if (info.protocol !== 'bitalgo:') {
+    throw new TypeError('Invalid bitalgo URI');
   }
 
   // workaround to host insensitiveness
@@ -11490,7 +11492,7 @@ URI.prototype._fromObject = function(obj) {
   /* jshint maxcomplexity: 10 */
 
   if (!Address.isValid(obj.address)) {
-    throw new TypeError('Invalid bltg address');
+    throw new TypeError('Invalid bitalgo address');
   }
 
   this.address = new Address(obj.address);
@@ -11560,7 +11562,7 @@ URI.prototype.toString = function() {
   _.extend(query, this.extras);
 
   return URL.format({
-    protocol: 'bltg:',
+    protocol: 'bitalgo:',
     host: this.address,
     query: query
   });
@@ -25926,7 +25928,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.4.0",
-      "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg"
+      "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo"
     ]
   ],
   "_development": true,
@@ -25951,7 +25953,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_spec": "6.4.0",
-  "_where": "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg",
+  "_where": "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -28295,7 +28297,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.4.0",
-      "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg"
+      "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo"
     ]
   ],
   "_development": true,
@@ -28320,7 +28322,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_spec": "6.4.0",
-  "_where": "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg",
+  "_where": "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -32461,7 +32463,7 @@ module.exports={
   "_args": [
     [
       "elliptic@3.0.3",
-      "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg"
+      "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo"
     ]
   ],
   "_from": "elliptic@3.0.3",
@@ -32485,7 +32487,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
   "_spec": "3.0.3",
-  "_where": "/Users/awerner/GitHub/Block-Logic-Technology-Group/bitcore-lib-bltg",
+  "_where": "/Users/awerner/GitHub/NewBitalGo/bitcore-lib-bitalgo",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -60521,7 +60523,7 @@ module.exports.AES_ROUND_NOKEY_LE = function(X, Y) {
 ///////////////  Blake //////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -60747,7 +60749,7 @@ module.exports = function(input, format, output) {
 //////////////  BMW /////////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -61105,7 +61107,7 @@ module.exports = function(input, format, output) {
 ////////////  Cubehash //////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -61437,7 +61439,7 @@ module.exports = function(input, format, output) {
 ///////////////  Echo ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -61724,7 +61726,7 @@ module.exports = function(input, format, output) {
 ////////////  groestl ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -63146,7 +63148,7 @@ module.exports.string2Int32Buffer = function (s) {
 ///////////////  Jh /////////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -64147,7 +64149,7 @@ module.exports = methods;
 //////////////  Luffa ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -65067,7 +65069,7 @@ module.exports.xORTable = function(d, s1, s2, len) {
 ////////////  Shavite ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -65763,7 +65765,7 @@ module.exports = function(input, format, output) {
 //////////////  Simd ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Block-Logic-Technology-Group //////////
+////////// NewBitalGo //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -66453,9 +66455,9 @@ function block(c, tweak, b, off) {
 }
 },{"./helper":268,"./op":272}],276:[function(require,module,exports){
 module.exports={
-  "name": "bitcore-lib-bltg",
+  "name": "bitcore-lib-bitalgo",
   "version": "0.15.2",
-  "description": "A pure and powerful JavaScript Bltg library.",
+  "description": "A pure and powerful JavaScript Bitalgo library.",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
@@ -66522,7 +66524,7 @@ module.exports={
     }
   ],
   "keywords": [
-    "bltg",
+    "bitalgo",
     "transaction",
     "address",
     "p2p",
@@ -66539,12 +66541,12 @@ module.exports={
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Block-Logic-Technology-Group/bitcore-lib-bltg.git"
+    "url": "https://github.com/NewBitalGo/bitcore-lib-bitalgo.git"
   },
   "bugs": {
-    "url": "https://github.com/Block-Logic-Technology-Group/bitcore-lib-bltg/issues"
+    "url": "https://github.com/NewBitalGo/bitcore-lib-bitalgo/issues"
   },
-  "homepage": "https://github.com/Block-Logic-Technology-Group/bitcore-lib-bltg",
+  "homepage": "https://github.com/NewBitalGo/bitcore-lib-bitalgo",
   "browser": {
     "request": "browser-request"
   },
@@ -66559,7 +66561,7 @@ module.exports={
     "x11-hash-js": "^1.0.0"
   },
   "devDependencies": {
-    "bitcore-build-bltg": "Block-Logic-Technology-Group/bitcore-build-bltg",
+    "bitcore-build-bitalgo": "NewBitalGo/bitcore-build-bitalgo",
     "browserify": "latest",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
@@ -66569,7 +66571,7 @@ module.exports={
   "license": "MIT"
 }
 
-},{}],"bitcore-lib-bltg":[function(require,module,exports){
+},{}],"bitcore-lib-bitalgo":[function(require,module,exports){
 (function (global,Buffer){
 'use strict';
 
