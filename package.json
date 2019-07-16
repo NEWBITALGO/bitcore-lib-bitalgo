@@ -1,7 +1,7 @@
 {
   "name": "bitcore-lib-bitalgo",
   "version": "0.15.2",
-  "description": "A pure and powerful JavaScript BLTG library.",
+  "description": "A pure and powerful JavaScript BitalGo library.",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
@@ -65,6 +65,14 @@
     {
       "name": "Alex Werner",
       "email": "alex@werner.fr"
+    },
+    {
+      "name": "Emmanuel App",
+      "email": "emmanuel@glibx.com"
+    },
+    {
+      "name": "dezzyboy",
+      "email": "dezzyboy@glibx.com"
     }
   ],
   "keywords": [
